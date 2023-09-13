@@ -6,7 +6,7 @@ public class Road : MonoBehaviour
 {
     public float speed = 0.1f;
 
-    public float roadWidth = 6.0f;
+    public float roadWidth = 8.0f;
     public float roadHeight = 8.0f;
 
 //    public float x = 0.0f;

@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1221427558}
     m_Modifications:
+    - target: {fileID: -5716681864270162303, guid: e6eb84f4c138979499f17ae82ab9368a, type: 3}
+      propertyPath: m_AnimatePhysics
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e6eb84f4c138979499f17ae82ab9368a, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -156,7 +160,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e6eb84f4c138979499f17ae82ab9368a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.01
+      value: -13.36
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e6eb84f4c138979499f17ae82ab9368a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -308,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.1
-  roadWidth: 6
+  roadWidth: 8
   roadHeight: 8
   y: 0
 --- !u!1 &705507993
@@ -503,7 +507,7 @@ GameObject:
   - component: {fileID: 1221427559}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -520,6 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fdb1c2231ae83d43887be27cef023e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  road: {fileID: 0}
 --- !u!4 &1221427558
 Transform:
   m_ObjectHideFlags: 0
@@ -544,11 +549,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221427556}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 3.5, z: 1}
-  m_Center: {x: 0, y: 0, z: -13.5}
+  m_Size: {x: 1.3125044, y: 3.1955276, z: 1}
+  m_Center: {x: 0.019559443, y: -0.09983903, z: -13.5}
 --- !u!54 &1221427560
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -590,7 +595,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1898492599}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 14.54, z: 0}
+  m_LocalPosition: {x: 4.12, y: 15.92, z: 0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -610,5 +615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PrefabCar1: {fileID: 4721020558886477366, guid: 5d17ae16c4dcd1e4891740bfabe0cee8, type: 3}
+  PrefabSpace: {fileID: 2527337833724743194, guid: 20a6ab6bf052cae4891ea653d464bb4a, type: 3}
+  PrefabOldCar: {fileID: 1714428817328964710, guid: 83b28b45b27e7b442a123f99f09e5b1c, type: 3}
   spawnRate: 0.3
-  road: {fileID: 0}
+  road: {fileID: 536736030}
