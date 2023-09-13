@@ -8,6 +8,10 @@ TagManager:
   - Enemy
   - OldCar
   - Space
+  - Item_Reverse
+  - Item_Oil
+  - Item_Health
+  - Item_Bullet
   layers:
   - Default
   - TransparentFX
