@@ -119,7 +119,6 @@ public class Player : MonoBehaviour
         }
         if (bItemBomb)
         {
-            // "Enemy" 태그를 가진 모든 GameObject들을 찾아서 제거합니다.
             GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemyObjects)
             {
@@ -127,7 +126,6 @@ public class Player : MonoBehaviour
                 Destroy(enemy);
             }
 
-            // "Space" 태그를 가진 모든 GameObject들을 찾아서 제거합니다.
             GameObject[] spaceObjects = GameObject.FindGameObjectsWithTag("Space");
             foreach (GameObject space in spaceObjects)
             {
@@ -135,7 +133,6 @@ public class Player : MonoBehaviour
                 Destroy(space);
             }
 
-            // "OldCar" 태그를 가진 모든 GameObject들을 찾아서 제거합니다.
             GameObject[] oldCarObjects = GameObject.FindGameObjectsWithTag("OldCar");
             foreach (GameObject oldCar in oldCarObjects)
             {
@@ -152,7 +149,6 @@ public class Player : MonoBehaviour
                 float dis = Vector3.Distance(transform.position, health.transform.position);
                 if(dis < magnet_range)
                 {
-                    // 끌어당기는 로직을 작성합니다.
                     Vector3 direction = (gameObject.transform.position - health.transform.position);
                     direction.z = 0;
                     health.transform.position += direction.normalized * Time.deltaTime * magnetSpeed ;
@@ -164,7 +160,6 @@ public class Player : MonoBehaviour
                 float dis = Vector3.Distance(transform.position, Bullet.transform.position);
                 if (dis < magnet_range)
                 {
-                    // 끌어당기는 로직을 작성합니다.
                     Vector3 direction = (gameObject.transform.position - Bullet.transform.position);
                     direction.z = 0;
                     Bullet.transform.position += direction.normalized * Time.deltaTime * magnetSpeed ;
@@ -176,7 +171,6 @@ public class Player : MonoBehaviour
                 float dis = Vector3.Distance(transform.position, Bomb.transform.position);
                 if (dis < magnet_range)
                 {
-                    // 끌어당기는 로직을 작성합니다.
                     Vector3 direction = (gameObject.transform.position - Bomb.transform.position);
                     direction.z = 0;
                     Bomb.transform.position += direction.normalized * Time.deltaTime * magnetSpeed ;
@@ -209,6 +203,7 @@ public class Player : MonoBehaviour
     {
         if(other.tag == "Enemy" || other.tag == "OldCar" || other.tag == "Space")
         {
+            GetComponent<AudioSource>().Play();
         }
         if(other.tag == "Item_Reverse")
         {
