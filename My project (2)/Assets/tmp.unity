@@ -444,6 +444,7 @@ MonoBehaviour:
   ItemHealth: {fileID: 4505425316285388910, guid: 0d3f1505108d88549b9944cd68f74d19, type: 3}
   ItemBomb: {fileID: 4935440345810833514, guid: afbfab518c27488469bbaa23ff5522f1, type: 3}
   ItemMagnet: {fileID: 3354773790660485150, guid: b7ed170d561dc5448a7d960c00175ed7, type: 3}
+  ItemSlow: {fileID: 5267539215851573608, guid: 32358f653fa790f47ac94d48956b49ea, type: 3}
   spawnRate: 1
   road: {fileID: 0}
 --- !u!4 &791759272
@@ -783,6 +784,7 @@ MonoBehaviour:
   bItemHealth: 0
   bItemBomb: 0
   bItemMagnet: 0
+  bItemSlow: 0
   PrefabBarrel: {fileID: 100018, guid: 77f09d9db5010fb48be4c283ff961f7f, type: 3}
   road: {fileID: 0}
 --- !u!4 &1221427558
@@ -1110,6 +1112,8 @@ MonoBehaviour:
   ReverseTexture: {fileID: 2800000, guid: e94fbcc637070c648b4cb3cc3ab850ad, type: 3}
   BulletTexture: {fileID: 2800000, guid: 8df1f7d13249dc341ba08295b16372b3, type: 3}
   HealthTexture: {fileID: 2800000, guid: e640368a0deb6254e9db0e1c8eafa17c, type: 3}
+  SlowTexture: {fileID: 2800000, guid: 0700536f7cc45c045a0ac5dc369f9e99, type: 3}
+  MagnetTexture: {fileID: 2800000, guid: e28b100ccce3422469159bb528dcbad1, type: 3}
   player: {fileID: 0}
 --- !u!4 &1760669181
 Transform:

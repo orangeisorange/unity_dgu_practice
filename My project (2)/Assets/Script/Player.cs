@@ -35,6 +35,10 @@ public class Player : MonoBehaviour
     private float timeItemMagnet;
     private float timeItemMagnetStart;
 
+    public bool bItemSlow = false;
+    private float timeItemSlow;
+    private float timeItemSlowStart;
+
     public GameObject PrefabBarrel;
     // Start is called before the first frame update
     public Road road;
@@ -62,6 +66,9 @@ public class Player : MonoBehaviour
 
         bItemMagnet =false;
         timeItemMagnet = 5.0f;
+
+        bItemSlow = false;
+        timeItemSlow = 5.0f;
     }
 
     // Update is called once per frame
@@ -73,6 +80,8 @@ public class Player : MonoBehaviour
             dir1 *= -1;
         if (bItemOil)
             dir1 *= 10;
+        if (bItemSlow)
+            dir1 /= 10;
         transform.Translate(Vector3.right * dir1 * speed * Time.deltaTime);
 
         float dir2 = Input.GetAxis("Vertical");
@@ -81,6 +90,8 @@ public class Player : MonoBehaviour
             dir2 *= -1;
         if(bItemOil)
             dir2 *= 10;
+        if(bItemSlow)
+            dir2 /= 10;
         transform.Translate(Vector3.up * dir2 * speed * Time.deltaTime);
 
         if(bItemReverse)
@@ -96,6 +107,13 @@ public class Player : MonoBehaviour
             if(Time.time - timeItemOilStart > timeItemOil)
             {
                 bItemOil = false;
+            }
+        }
+        if(bItemSlow)
+        {
+            if(Time.time - timeItemSlowStart > timeItemSlow)
+            {
+                bItemSlow = false;
             }
         }
         if (bItemBullet)
@@ -242,6 +260,12 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
             bItemMagnet = true;
             timeItemMagnetStart = Time.time;
+        }
+        if(other.tag == "Item_Slow")
+        {
+            Destroy(other.gameObject);
+            bItemSlow = true;
+            timeItemSlowStart = Time.time;
         }
     }
 }

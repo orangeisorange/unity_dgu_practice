@@ -10,6 +10,7 @@ public class SpawnerItem : MonoBehaviour
     public GameObject ItemHealth;
     public GameObject ItemBomb;
     public GameObject ItemMagnet;
+    public GameObject ItemSlow;
 
     private float nextTime = 0.0f;
     public float spawnRate = 1.0f;
@@ -25,7 +26,7 @@ public class SpawnerItem : MonoBehaviour
     {
         if (nextTime< Time.time)
         {
-            int i = Random.Range(1, 7);
+            int i = Random.Range(1, 8);
             if (i == 1)
             {
                 SpawnOil();
@@ -49,6 +50,10 @@ public class SpawnerItem : MonoBehaviour
             if(i==6)
             {
                 SpawnMagnet();
+            }
+            if(i==7)
+            {
+                SpawnSlow();
             }
             nextTime = Time.time + spawnRate;
         }
@@ -89,5 +94,11 @@ public class SpawnerItem : MonoBehaviour
         float addXPos = Random.Range(-road.roadWidth - 4, road.roadWidth - 4);
         Vector3 spawnPos = transform.position + new Vector3(addXPos, 0, -11);
         Instantiate(ItemMagnet, spawnPos, Quaternion.Euler(0, 180, 0));
+    }
+    void SpawnSlow()
+    {
+        float addXPos = Random.Range(-road.roadWidth - 4, road.roadWidth - 4);
+        Vector3 spawnPos = transform.position + new Vector3(addXPos, 0, -11);
+        Instantiate(ItemSlow, spawnPos, Quaternion.Euler(0, 180, 0));
     }
 }

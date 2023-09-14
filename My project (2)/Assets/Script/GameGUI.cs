@@ -13,6 +13,8 @@ public class GameGUI : MonoBehaviour
     public Texture ReverseTexture;
     public Texture BulletTexture;
     public Texture HealthTexture;
+    public Texture SlowTexture;
+    public Texture MagnetTexture;
 
     public Player player;
     // Start is called before the first frame update
@@ -39,8 +41,8 @@ public class GameGUI : MonoBehaviour
     {
         float x;
         float y;
-        float width = OilTexture.width / 2;
-        float height = OilTexture.height / 2;
+        float width = OilTexture.width / 3;
+        float height = OilTexture.height / 3;
 
         GUI.color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
         
@@ -71,6 +73,20 @@ public class GameGUI : MonoBehaviour
             y = 6 + (height + 10);
             Rect rect = new Rect(x, y, width, height);
             GUI.DrawTexture(rect, HealthTexture);
+        }
+        if (player.bItemSlow)
+        {
+            x = Screen.width - (10 + width);
+            y = 6 + (height + 10) * 2;
+            Rect rect = new Rect(x, y, width, height);
+            GUI.DrawTexture(rect, SlowTexture);
+        }
+        if (player.bItemMagnet)
+        {
+            x = Screen.width - (10 + width) * 2;
+            y = 6 + (height + 10) * 2;
+            Rect rect = new Rect(x, y, width, height);
+            GUI.DrawTexture(rect, MagnetTexture);
         }
         GUI.color = Color.white;
     }
