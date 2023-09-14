@@ -207,6 +207,9 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.tag == "Enemy" || other.tag == "OldCar" || other.tag == "Space")
+        {
+        }
         if(other.tag == "Item_Reverse")
         {
             Destroy(other.gameObject);

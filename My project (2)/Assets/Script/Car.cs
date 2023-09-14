@@ -9,6 +9,7 @@ public class Car : MonoBehaviour
 
     public GameObject Explosion;
 
+    public Player Player;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +49,8 @@ public class Car : MonoBehaviour
                 Instantiate(Explosion, transform.position + new Vector3(0, -3, -10), transform.rotation);
             }
             Destroy(gameObject);
+
+            Player.health -= 0.1f;
         }
     }
 }

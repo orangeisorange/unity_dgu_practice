@@ -350,6 +350,7 @@
 "Assets/Script/GameGUI.cs"
 "Assets/Script/Item.cs"
 "Assets/Script/Player.cs"
+"Assets/Script/ProgressBar.cs"
 "Assets/Script/Road.cs"
 "Assets/Script/SpawnerCar.cs"
 "Assets/Script/SpawnerItem.cs"
