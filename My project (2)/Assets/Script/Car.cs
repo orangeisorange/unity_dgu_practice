@@ -24,6 +24,12 @@ public class Car : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if(transform.position.y > 14 || transform.position.x > 20 || transform.position.x < -20)
+        {
+            Destroy(gameObject);
+        }
+
     }
     void OnTriggerEnter(Collider other)
     {
@@ -31,12 +37,10 @@ public class Car : MonoBehaviour
         {
             if(gameObject.CompareTag("Space"))
             {
-                Debug.Log("space");
-                Instantiate(Explosion, transform.position + new Vector3(2, 0, 7f), transform.rotation);
+                Instantiate(Explosion, transform.position + new Vector3(2, 0, 9f), transform.rotation);
             }
             else if(gameObject.CompareTag("OldCar"))
             {
-                Debug.Log("Oldcar");
                 Instantiate(Explosion, transform.position + new Vector3(2, 0, 7f), transform.rotation);
             }
             else

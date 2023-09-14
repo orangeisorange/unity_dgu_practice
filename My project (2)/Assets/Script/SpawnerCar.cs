@@ -9,7 +9,7 @@ public class SpawnerCar : MonoBehaviour
     public GameObject PrefabOldCar;
 
     private float nextTime = 0.0f;
-    public float spawnRate = 0.3f;
+    public float spawnRate = 0.5f;
 
     public Road road;
     // Start is called before the first frame update

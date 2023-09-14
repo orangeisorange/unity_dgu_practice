@@ -8,6 +8,11 @@ public class Player : MonoBehaviour
 
     public static float health;
 
+    public GameObject Explosion;
+
+    public static float magnet_range;
+    public static float magnetSpeed;
+
     public bool bItemReverse = false;
     public float timeItemReverse;
     private float timeItemReverseStart;
@@ -38,6 +43,8 @@ public class Player : MonoBehaviour
         road = GameObject.Find("Road").GetComponent<Road>();
 
         health = 1.0f;
+        magnet_range = 20f;
+        magnetSpeed = 5.0f;
 
         bItemReverse = false;
         timeItemReverse = 5.0f;
@@ -52,6 +59,9 @@ public class Player : MonoBehaviour
         timeItemHealth = 5.0f;
 
         bItemBomb = false;
+
+        bItemMagnet =false;
+        timeItemMagnet = 5.0f;
     }
 
     // Update is called once per frame
@@ -113,6 +123,7 @@ public class Player : MonoBehaviour
             GameObject[] enemyObjects = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (GameObject enemy in enemyObjects)
             {
+                Instantiate(Explosion, enemy.transform.position + new Vector3(0, -3, -10), transform.rotation);
                 Destroy(enemy);
             }
 
@@ -120,6 +131,7 @@ public class Player : MonoBehaviour
             GameObject[] spaceObjects = GameObject.FindGameObjectsWithTag("Space");
             foreach (GameObject space in spaceObjects)
             {
+                Instantiate(Explosion, space.transform.position + new Vector3(2, 0, 9f), transform.rotation);
                 Destroy(space);
             }
 
@@ -127,12 +139,55 @@ public class Player : MonoBehaviour
             GameObject[] oldCarObjects = GameObject.FindGameObjectsWithTag("OldCar");
             foreach (GameObject oldCar in oldCarObjects)
             {
+                Instantiate(Explosion, oldCar.transform.position + new Vector3(2, 0, 7f), transform.rotation);
                 Destroy(oldCar);
             }
             bItemBomb = false;
         }
-
-        if(transform.position.x < -road.roadWidth)
+        if(bItemMagnet)
+        {
+            GameObject[] healthObjects = GameObject.FindGameObjectsWithTag("Item_Health");
+            foreach(GameObject health in healthObjects)
+            {
+                float dis = Vector3.Distance(transform.position, health.transform.position);
+                if(dis < magnet_range)
+                {
+                    // 끌어당기는 로직을 작성합니다.
+                    Vector3 direction = (gameObject.transform.position - health.transform.position);
+                    direction.z = 0;
+                    health.transform.position += direction.normalized * Time.deltaTime * magnetSpeed ;
+                }
+            }
+            GameObject[] BulletObjects = GameObject.FindGameObjectsWithTag("Item_Bullet");
+            foreach (GameObject Bullet in BulletObjects)
+            {
+                float dis = Vector3.Distance(transform.position, Bullet.transform.position);
+                if (dis < magnet_range)
+                {
+                    // 끌어당기는 로직을 작성합니다.
+                    Vector3 direction = (gameObject.transform.position - Bullet.transform.position);
+                    direction.z = 0;
+                    Bullet.transform.position += direction.normalized * Time.deltaTime * magnetSpeed ;
+                }
+            }
+            GameObject[] BombObjects = GameObject.FindGameObjectsWithTag("Item_Bomb");
+            foreach (GameObject Bomb in BombObjects)
+            {
+                float dis = Vector3.Distance(transform.position, Bomb.transform.position);
+                if (dis < magnet_range)
+                {
+                    // 끌어당기는 로직을 작성합니다.
+                    Vector3 direction = (gameObject.transform.position - Bomb.transform.position);
+                    direction.z = 0;
+                    Bomb.transform.position += direction.normalized * Time.deltaTime * magnetSpeed ;
+                }
+            }
+            if (Time.time - timeItemMagnetStart > timeItemMagnet)
+            {
+                bItemMagnet = false;
+            }
+        }
+        if (transform.position.x < -road.roadWidth)
         {
             transform.position = new Vector3(-road.roadWidth, transform.position.y, transform.position.z);
         }
