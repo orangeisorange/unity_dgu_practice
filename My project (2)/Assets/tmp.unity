@@ -439,6 +439,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemReverse: {fileID: 1875706376229993326, guid: 61677d23db3dbd54c865780bb8f43171, type: 3}
+  ItemOil: {fileID: 2702950123745461829, guid: 2c4e25b0048c5924196030cd38473dbc, type: 3}
+  ItemBullet: {fileID: 105416169168314984, guid: d152987ac93b1794dab2df4c7a92d2dd, type: 3}
+  ItemHealth: {fileID: 4505425316285388910, guid: 0d3f1505108d88549b9944cd68f74d19, type: 3}
+  ItemBomb: {fileID: 4935440345810833514, guid: afbfab518c27488469bbaa23ff5522f1, type: 3}
+  ItemMagnet: {fileID: 3354773790660485150, guid: b7ed170d561dc5448a7d960c00175ed7, type: 3}
   spawnRate: 1
   road: {fileID: 0}
 --- !u!4 &791759272
@@ -573,6 +578,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bItemReverse: 0
   timeItemReverse: 0
+  bItemBullet: 0
+  bItemOil: 0
+  bItemHealth: 0
+  bItemBomb: 0
+  bItemMagnet: 0
+  PrefabBarrel: {fileID: 100018, guid: 77f09d9db5010fb48be4c283ff961f7f, type: 3}
   road: {fileID: 0}
 --- !u!4 &1221427558
 Transform:

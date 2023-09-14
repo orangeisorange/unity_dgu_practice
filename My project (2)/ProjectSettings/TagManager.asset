@@ -12,6 +12,8 @@ TagManager:
   - Item_Oil
   - Item_Health
   - Item_Bullet
+  - Item_Bomb
+  - Item_Magnet
   layers:
   - Default
   - TransparentFX
