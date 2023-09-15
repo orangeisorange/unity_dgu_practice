@@ -348,6 +348,7 @@
 "Assets/Script/Barrel.cs"
 "Assets/Script/Car.cs"
 "Assets/Script/GameGUI.cs"
+"Assets/Script/GameManager.cs"
 "Assets/Script/Item.cs"
 "Assets/Script/Player.cs"
 "Assets/Script/ProgressBar.cs"

@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 
     public static float health;
 
+    private GameManager gameManager;
+    
     public GameObject Explosion;
 
     public static float magnet_range;
@@ -44,9 +46,11 @@ public class Player : MonoBehaviour
     public Road road;
     void Start()
     {
+        Debug.Log("start!");
+        gameManager = FindObjectOfType<GameManager>();
         road = GameObject.Find("Road").GetComponent<Road>();
-
         health = 1.0f;
+
         magnet_range = 20f;
         magnetSpeed = 5.0f;
 
@@ -58,23 +62,37 @@ public class Player : MonoBehaviour
 
         bItemOil = false;
         timeItemOil = 5.0f;
-        
+
         bItemHealth = false;
         timeItemHealth = 5.0f;
 
         bItemBomb = false;
 
-        bItemMagnet =false;
+        bItemMagnet = false;
         timeItemMagnet = 5.0f;
 
         bItemSlow = false;
         timeItemSlow = 5.0f;
+
+
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
         float dir1 = Input.GetAxis("Horizontal");
+        if (health <= 0)
+        {
+            gameManager.PlayerDied();
+            GameGUI.meter = 0;
+        }
+        if (!gameManager.isGameStart)
+        {
+            gameManager.MainScreen();
+        }
+
 
         if (bItemReverse)
             dir1 *= -1;

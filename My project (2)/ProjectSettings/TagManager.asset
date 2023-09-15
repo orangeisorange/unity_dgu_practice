@@ -15,6 +15,8 @@ TagManager:
   - Item_Bomb
   - Item_Magnet
   - Item_Slow
+  - Button_Restart
+  - Button_Start
   layers:
   - Default
   - TransparentFX
@@ -22,7 +24,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - bg
   - 
   - 
   - 
@@ -51,4 +53,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1797371323
+    locked: 0
+  - name: Bg
+    uniqueID: 2557002665
     locked: 0
