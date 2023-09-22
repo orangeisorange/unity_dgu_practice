@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -8,8 +10,6 @@ public class Player : MonoBehaviour
 
     public static float health;
 
-    private GameManager gameManager;
-    
     public GameObject Explosion;
 
     public static float magnet_range;
@@ -46,8 +46,6 @@ public class Player : MonoBehaviour
     public Road road;
     void Start()
     {
-        Debug.Log("start!");
-        gameManager = FindObjectOfType<GameManager>();
         road = GameObject.Find("Road").GetComponent<Road>();
         health = 1.0f;
 
@@ -85,12 +83,7 @@ public class Player : MonoBehaviour
         float dir1 = Input.GetAxis("Horizontal");
         if (health <= 0)
         {
-            gameManager.PlayerDied();
-            GameGUI.meter = 0;
-        }
-        if (!gameManager.isGameStart)
-        {
-            gameManager.MainScreen();
+            SceneManager.LoadScene("diedUI");
         }
 
 
@@ -142,7 +135,7 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKeyDown("space"))
             {
-                Vector3 newPos = new Vector3(transform.position.x, transform.position.y + 1.8f, transform.position.z - 12);
+                Vector3 newPos = new Vector3(transform.position.x, transform.position.y + 1.8f, transform.position.z - 13);
                 Instantiate(PrefabBarrel, newPos, Quaternion.identity);
             }
         }
@@ -229,9 +222,9 @@ public class Player : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, road.roadHeight, transform.position.z);
         }
-        else if (transform.position.y < 0)
+        else if (transform.position.y < -5)
         {
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+            transform.position = new Vector3(transform.position.x, -5, transform.position.z);
         }
     }
 
