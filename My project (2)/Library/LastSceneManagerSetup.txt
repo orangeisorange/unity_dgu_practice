@@ -1,13 +1,13 @@
 sceneSetups:
-- path: Assets/mainUI.unity
+- path: Assets/Scenes/mainUI.unity
   isLoaded: 1
   isActive: 0
   isSubScene: 0
-- path: Assets/tmp.unity
+- path: Assets/Scenes/tmp.unity
   isLoaded: 1
   isActive: 0
   isSubScene: 0
-- path: Assets/diedUI.unity
+- path: Assets/Scenes/diedUI.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameGUI : MonoBehaviour
 {
     public Text guiMeter;
+    // 이 미터는 다른 씬에서도 사용된다.
     public static int meter;
     public float timePrev;
 
@@ -29,14 +30,17 @@ public class GameGUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 1초가 지날 때 마다 meter 에 1을 더해준다.
         if(Time.time - timePrev > 1.0f)
         {
             timePrev = Time.time;
             meter++;
         }
+        // 미터 표기
         guiMeter.text = meter + "m";
     }
 
+    // 2 * 3 크기로 왼쪽 상단에 먹은 아이템의 UI를 띄운다.
     void OnGUI()
     {
         float x;

@@ -6,19 +6,16 @@ using UnityEngine.SceneManagement;
 
 public class MainUIManager : MonoBehaviour
 {
-    public GameObject startScreen;
     public GameObject startfireScreen;
     public Button startButton;
-    public GameObject startBackgroundScreen;
 
     // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;
+        // 게임 최초 시작시, 보게될 화면 세팅
+        Time.timeScale = 1;
         startButton.onClick.AddListener(StartGame);
-        startScreen.SetActive(true);
         startfireScreen.SetActive(true);
-        startBackgroundScreen.SetActive(true);
 
     }
 
@@ -27,11 +24,10 @@ public class MainUIManager : MonoBehaviour
     {
         
     }
-
+    // 게임 시작 버튼을 누른 경우. 인게임 씬으로 변경.
     public void StartGame()
     {
         SceneManager.LoadScene("tmp");
         Time.timeScale = 1;
-
     }
 }

@@ -21,6 +21,7 @@ public class SpawnerCar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // 스폰 Rate가 계속 더해져서 Time.time 보다 커지면, 적 생성.
         if(nextTime < Time.time)
         {
             SpawnEnemy();
@@ -32,6 +33,8 @@ public class SpawnerCar : MonoBehaviour
     {
         float addXPos = Random.Range(-road.roadWidth-4, road.roadWidth-4);
         Vector3 spawnPos = transform.position + new Vector3(addXPos, 0, 0);
+        // Random을 이용하여, 3가지의 적들 중, 랜덤으로 하나 스폰되도록 함.
+        // 각 적마다 스폰되는 좌표가 달라서, 스폰시 보정되는 좌표는 적 마다 다름.
         int rand = (int)Random.Range(0, 3);
         if (rand == 0)
         {
